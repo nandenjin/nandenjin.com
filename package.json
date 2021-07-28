@@ -4,10 +4,10 @@
   "description": "https://www.nandenjin.com/",
   "main": "index.js",
   "scripts": {
-    "start": "nuxt-ts start",
-    "dev": "nuxt-ts dev",
-    "build": "nuxt-ts build",
-    "generate": "nuxt-ts generate",
+    "start": "nuxt start",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
     "deploy": "firebase deploy",
     "content": "run-s clean content:*",
     "content:fetch": "git clone -b master --depth 1 https://github.com/nandenjin/portfolio.git content",
@@ -25,7 +25,6 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "@nuxt/types": "^2.15.7",
-    "@nuxt/typescript-runtime": "^2.1.0",
     "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "normalize.css": "^8.0.1",
