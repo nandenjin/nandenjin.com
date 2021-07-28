@@ -67,10 +67,17 @@
               <th>場所</th>
               <td>
                 <span
+                  class="location"
                   v-for="location in page.locations"
                   :key="location.title_ja"
-                  >{{ location.title_ja }}</span
                 >
+                  <span class="title">{{ location.title_ja }}</span>
+                  <embed-map
+                    class="map"
+                    v-if="location.lat && location.lng"
+                    :lat="location.lat"
+                    :lng="location.lng"
+                /></span>
               </td>
             </tr>
             <tr v-if="(page.external_infos || []).length > 0">
@@ -101,6 +108,7 @@ import { IContentDocument } from '@nuxt/content/types/content'
 import { Vue, Component } from 'nuxt-property-decorator'
 import ContentRenderer from '~/components/ContentRenderer'
 import XPicture from '~/components/XPicture.vue'
+import EmbedMap from '~/components/EmbedMap.vue'
 import { formatDate, toContentURL } from '~/lib/helpers'
 import { WorkMeta } from '~/types'
 
@@ -124,7 +132,8 @@ import { WorkMeta } from '~/types'
 
   components: {
     ContentRenderer,
-    XPicture
+    XPicture,
+    EmbedMap
   },
 
   head(this: EventPage) {
@@ -255,6 +264,16 @@ export default class EventPage extends Vue {
         left: 0
         width: 100%
         height: 100%
+
+.location
+  margin: 15px 0
+
+  .title
+    margin: 10px 0
+
+  .map
+    margin: 10px 0
+
 
 .external-infos
   display: inline

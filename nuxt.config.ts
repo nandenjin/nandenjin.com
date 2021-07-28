@@ -20,6 +20,10 @@ const config: NuxtConfig = {
     baseUrl
   },
 
+  publicRuntimeConfig: {
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
+  },
+
   sitemap: {
     hostname: baseUrl,
     gzip: true,
