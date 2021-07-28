@@ -10,27 +10,13 @@
     @click="playing = playerMode"
   >
     <figure class="fig">
-      <picture>
-        <source
-          v-if="!isExternalSrc"
-          type="image/webp"
-          :srcset="srcsetWebP"
-          :sizes="sizes"
-        />
-        <source
-          v-if="!isExternalSrc"
-          type="image/jpeg"
-          :srcset="srcset"
-          :sizes="sizes"
-        />
-        <img
-          v-if="src"
-          :src="src"
-          :alt="alt"
-          class="src-img"
-          @load="loaded = true"
-        />
-      </picture>
+      <x-picture
+        :src="src"
+        :alt="alt"
+        :sizes="sizes"
+        :cover="cover"
+        @load="loaded = true"
+      />
     </figure>
     <iframe
       v-if="playerMode && playing"
@@ -51,10 +37,9 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
+import XPicture from './XPicture.vue'
 
-const SIZES = [320, 768, 1024, 1600]
-
-@Component
+@Component({ components: { XPicture } })
 export default class ImageBox extends Vue {
   @Prop(String) readonly src!: string
   @Prop(String) readonly alt: string | undefined
@@ -63,28 +48,6 @@ export default class ImageBox extends Vue {
   @Prop({ default: false }) readonly cover!: boolean
   loaded = false
   playing = false
-
-  get srcset(): string {
-    if (!this.src) {
-      return ''
-    }
-    this.src.match(/^(.+)\.(jpg|png|webp|gif)$/)
-    return SIZES.map(
-      size => `${RegExp.$1}_${size}w.${RegExp.$2} ${size}w`
-    ).join(',')
-  }
-
-  get srcsetWebP(): string {
-    if (!this.src) {
-      return ''
-    }
-    this.src.match(/^(.+)\.(jpg|png|webp|gif)$/)
-    return SIZES.map(size => `${RegExp.$1}_${size}w.webp ${size}w`).join(',')
-  }
-
-  get isExternalSrc(): boolean {
-    return !this.src.match(/^\//)
-  }
 
   get playerMode(): boolean {
     return !!this.playerSrc
@@ -115,7 +78,6 @@ export default class ImageBox extends Vue {
   // <picture>のぶん画像下に謎の空白が開く対処
   line-height: 0
 
-
   &::before
     content: ''
     display: inline-block
@@ -128,20 +90,6 @@ export default class ImageBox extends Vue {
   .fig
     width: 100%
     height: 100%
-
-  .src-img
-    width: 100%
-    height: 0.1px
-    object-fit: cover
-    opacity: 0
-    transition: opacity 1s ease 0s
-
-  &.is-loaded .src-img
-      height: auto
-      opacity: 1
-
-  &.is-loaded.is-cover .src-img
-      height: 100%
 
   .play-button
     display: none
