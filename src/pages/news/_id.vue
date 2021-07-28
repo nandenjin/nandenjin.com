@@ -1,6 +1,7 @@
 <template>
   <main class="main doc">
     <div class="header">
+      <div class="badge">News</div>
       <h1 class="title">
         {{ page.title_ja }}
       </h1>
