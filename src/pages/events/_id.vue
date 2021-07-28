@@ -63,16 +63,22 @@
                 }}
               </td>
             </tr>
-            <tr v-if="page.location">
+            <tr v-if="page.locations || []">
               <th>場所</th>
-              <td>{{ page.location }}</td>
+              <td>
+                <span
+                  v-for="location in page.locations"
+                  :key="location.title_ja"
+                  >{{ location.title_ja }}</span
+                >
+              </td>
             </tr>
             <tr v-if="(page.external_infos || []).length > 0">
               <th>外部サイト</th>
               <td>
                 <ul class="external-infos">
                   <li v-for="info in page.external_infos" :key="info.title">
-                    <a :href="info.url">{{ info.title }}</a>
+                    <a :href="info.url">{{ info.title_ja }}</a>
                   </li>
                 </ul>
               </td>
