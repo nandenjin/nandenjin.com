@@ -79,7 +79,7 @@ p
       font-size: 14px
       color: #888
 
-.content-renderer
+.doc
   font-size: 14px
   line-height: 1.8em
 
@@ -89,7 +89,7 @@ p
     @include rmq()
       margin: 30px 0
 
-  p, h2, h3, h4, ul, ol
+  p, h2, h3, h4, ul, ol, table
     width: calc(100vw - 50px * 2)
     max-width: 700px
     margin: 15px auto
@@ -108,3 +108,14 @@ p
 
   li
     margin: .5em 0
+
+  blockquote
+    background-color: #efefef
+    margin: 30px 50px
+    padding: 20px 30px
+
+    @include rmq()
+      margin: 30px 25px
+
+    *
+      max-width: 100%
