@@ -22,7 +22,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 const SIZES = [320, 768, 1024, 1600]
 
 /** Convert URL to sized version */
-const sized = (src: string, size: number, ext?: string) => {
+const sized = (src: string, size: number, ext?: string): string => {
   if (src.match(/^(.+)\.(jpg|png|webp|gif)$/)) {
     return `${RegExp.$1}_${size}w.${ext || ''}`
   }
