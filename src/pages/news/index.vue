@@ -4,7 +4,7 @@
       <li v-for="item in pages" :key="item.name" class="item">
         <nuxt-link :to="item.path.replace(/^\/pages/, '')" class="item-content">
           <span class="title">{{ item.title_ja }}</span>
-          <span class="date">{{ item.release.replace(/T.+$/, '') }}</span>
+          <span class="date">{{ formatDate(item.release, 'yyyy.MM.dd') }}</span>
         </nuxt-link>
       </li>
     </ul>
@@ -16,6 +16,7 @@
 <script lang="ts">
 import { IContentDocument } from '@nuxt/content/types/content'
 import { Vue, Component } from 'vue-property-decorator'
+import { formatDate } from '~/lib/helpers'
 
 @Component({
   async asyncData({ $content }) {
@@ -56,6 +57,7 @@ import { Vue, Component } from 'vue-property-decorator'
 })
 export default class NewsIndexPage extends Vue {
   pages
+  formatDate = formatDate
 
   get jsonLD(): string {
     return JSON.stringify([

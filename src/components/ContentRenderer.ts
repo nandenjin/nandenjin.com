@@ -1,9 +1,8 @@
-import { join } from 'path'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import ImageBox from '~/components/ImageBox.vue'
 import YoutubeEmbed from '~/components/YoutubeEmbed.vue'
+import { toContentURL } from '~/lib/helpers'
 
-const contentDistRoot = join('/_nuxt', 'content')
 const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
 
 @Component<ContentRenderer>({
@@ -30,9 +29,7 @@ const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
         return h(ImageBox, {
           props: {
             ...node.props,
-            src: node.props.src
-              ? join(contentDistRoot, node.props.src)
-              : undefined,
+            src: node.props.src ? toContentURL(node.props.src) : undefined,
             sizes: IMAGE_SIZES_RULE
           }
         })
@@ -53,7 +50,7 @@ const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
               poster: poster
                 ? poster.match(/^(https?:)\/\//)
                   ? poster
-                  : join(contentDistRoot, poster)
+                  : toContentURL(poster)
                 : undefined,
               posterSizes: IMAGE_SIZES_RULE
             }
