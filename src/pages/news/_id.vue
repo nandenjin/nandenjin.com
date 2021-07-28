@@ -4,14 +4,14 @@
       <h1 class="title">
         {{ page.title_ja }}
       </h1>
-      <div class="info">{{ releaseStr }}</div>
+      <div class="info">{{ formatDate(page.release, 'yyyy.MM.dd') }}</div>
     </div>
 
     <section class="content">
       <content-renderer :content="page" />
     </section>
     <div class="footer">
-      <div class="gray">{{ releaseStr }}</div>
+      <div class="gray">{{ formatDate(page.release, 'yyyy.MM.dd') }}</div>
     </div>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <script type="application/ld+json" v-html="jsonLD" />
@@ -23,6 +23,7 @@
 
 import { Vue, Component } from 'nuxt-property-decorator'
 import ContentRenderer from '~/components/ContentRenderer'
+import { formatDate } from '~/lib/helpers'
 
 @Component({
   async asyncData({ route, $content }) {
@@ -57,6 +58,7 @@ import ContentRenderer from '~/components/ContentRenderer'
 })
 export default class NewsPage extends Vue {
   page
+  formatDate = formatDate
 
   get jsonLD(): string {
     return JSON.stringify([
@@ -85,13 +87,6 @@ export default class NewsPage extends Vue {
         ]
       }
     ])
-  }
-
-  get releaseStr(): string {
-    const d = new Date(this.page.release)
-    return `${d.getFullYear()}/${('00' + d.getMonth()).slice(-2)}/${(
-      '00' + d.getDate()
-    ).slice(-2)}`
   }
 }
 </script>
