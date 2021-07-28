@@ -1,7 +1,7 @@
 <template>
   <main class="main doc">
     <div class="header">
-      <div class="badge">Event</div>
+      <div class="badge">Events</div>
       <h1 class="title">
         {{ page.title_ja }}
       </h1>
