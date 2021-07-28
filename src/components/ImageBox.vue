@@ -69,7 +69,7 @@ export default class ImageBox extends Vue {
 </script>
 
 <style lang="sass" scoped>
-@import 'sass:math'
+@use 'sass:math'
 
 .image-box
   position: relative
