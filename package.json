@@ -1,6 +1,6 @@
 {
   "name": "@nandenjin/nandenjin.com",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "https://www.nandenjin.com/",
   "main": "index.js",
   "scripts": {
