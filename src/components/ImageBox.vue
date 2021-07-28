@@ -69,6 +69,7 @@ export default class ImageBox extends Vue {
 </script>
 
 <style lang="sass" scoped>
+@import 'sass:math'
 
 .image-box
   position: relative
@@ -81,7 +82,7 @@ export default class ImageBox extends Vue {
   &::before
     content: ''
     display: inline-block
-    padding-top: 9 / 16 * 100%
+    padding-top: math.div(9, 16) * 100%
 
   &.is-loaded
     &::before
@@ -134,7 +135,7 @@ export default class ImageBox extends Vue {
       &::before
         content: ''
         display: inline-block
-        padding-top: 9 / 16 * 100%
+        padding-top: math.div(9, 16) * 100%
 
       .hidden-in-playing
         display: none
