@@ -24,6 +24,11 @@
         "type": 302
       },
       {
+        "source": "/e/:path*",
+        "destination": "/events/:path*",
+        "type": 302
+      },
+      {
         "source": "/about",
         "destination": "/profile",
         "type": 302
