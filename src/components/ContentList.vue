@@ -73,7 +73,7 @@ export default class ContentList extends Vue {
 </script>
 
 <style lang="sass" scoped>
-
+@use 'sass:math'
 @import '~/assets/style/media.sass'
 
 .list-container
@@ -104,7 +104,7 @@ export default class ContentList extends Vue {
       &::before
         content: ''
         display: block
-        margin-top: (100% / 8 * 5)
+        margin-top: math.div(100%, 8) * 5
 
       img
         position: absolute
