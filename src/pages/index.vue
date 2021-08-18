@@ -21,6 +21,9 @@
           <nuxt-link class="item" to="/works">
             Works
           </nuxt-link>
+          <nuxt-link class="item" to="/events">
+            Events
+          </nuxt-link>
           <nuxt-link class="item" to="/profile">
             Profile
           </nuxt-link>
