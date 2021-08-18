@@ -15,7 +15,10 @@
       </p>
 
       <nav class="toc">
-        <a href="#info">開催概要</a> <a href="#works">出展作品</a>
+        <a href="#info">開催概要</a>
+        <a v-if="relatedWorks && relatedWorks.length > 0" href="#works"
+          >出展作品</a
+        >
       </nav>
     </div>
     <div class="content">
@@ -23,7 +26,7 @@
         <content-renderer :content="page" />
       </section>
 
-      <section>
+      <section v-if="relatedWorks && relatedWorks.length > 0">
         <h2 id="works">Works</h2>
         <ul class="related-works-list">
           <li v-for="w in relatedWorks" :key="w.id">
@@ -63,7 +66,7 @@
                 }}
               </td>
             </tr>
-            <tr v-if="page.locations || []">
+            <tr v-if="page.locations && page.locations.length > 0">
               <th>場所</th>
               <td>
                 <span
