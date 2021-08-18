@@ -26,7 +26,7 @@ interface Page {
     }
   },
   head: {
-    title: 'Works',
+    title: 'Events',
     meta: [
       {
         hid: 'og:title',
@@ -37,7 +37,7 @@ interface Page {
   },
   components: { ContentList }
 })
-export default class WorksIndexPage extends Vue {
+export default class EventsIndexPage extends Vue {
   get jsonLD(): string {
     return JSON.stringify([
       {
@@ -47,7 +47,7 @@ export default class WorksIndexPage extends Vue {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Works'
+            name: 'Events'
           }
         ]
       }

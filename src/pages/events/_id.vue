@@ -188,8 +188,8 @@ export default class EventPage extends Vue {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'News',
-            item: process.env.baseUrl + '/news'
+            name: 'Events',
+            item: process.env.baseUrl + '/events'
           },
           {
             '@type': 'ListItem',
