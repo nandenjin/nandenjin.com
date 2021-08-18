@@ -17,7 +17,7 @@ export default class EmbedMap extends Vue {
   @Prop(Number) lat!: number
   @Prop(Number) lng!: number
 
-  get src() {
+  get src(): string {
     return `https://www.google.com/maps/embed/v1/place?key=${this.$config.GOOGLE_API_KEY}&q=${this.lat},${this.lng}`
   }
 }
