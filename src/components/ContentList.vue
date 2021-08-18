@@ -1,6 +1,15 @@
 <template>
-  <div ref="container" class="list-container">
-    <article v-for="content in src" :key="content.name" class="item">
+  <div ref="container" class="list-container" :class="`mode-${mode}`">
+    <article
+      v-for="content in src"
+      :key="content.name"
+      class="item"
+      :class="
+        mode === 'events'
+          ? getSessionBadge(content.session_start, content.session_end)
+          : null
+      "
+    >
       <nuxt-link class="link" :to="content.path.replace(/^\/pages/, '')">
         <figure>
           <div
@@ -27,7 +36,14 @@
           </div>
           <figcaption class="caption">
             <h2 class="title">{{ content.title_ja }}</h2>
-            <div class="year">{{ content.year }}</div>
+            <div v-if="mode === 'works'" class="year">{{ content.year }}</div>
+            <div v-else-if="mode === 'events'" class="session">
+              {{
+                formatDate(content.session_start, 'yyyy.MM.dd') +
+                  ' - ' +
+                  formatDate(content.session_end, 'MM.dd')
+              }}
+            </div>
           </figcaption>
         </figure>
       </nuxt-link>
@@ -41,18 +57,22 @@
 import { join } from 'path'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { WorkMeta } from '~/types'
+import { formatDate } from '~/lib/helpers'
 
 interface Content {
   meta: WorkMeta
 }
 
 const contentDistRoot = join('/_nuxt', 'content')
+type ContentMode = 'works' | 'events'
 
 @Component({})
 export default class ContentList extends Vue {
   @Prop() src!: Content[]
+  @Prop({ default: 'works' }) mode!: ContentMode
   isDestroyed = false
   loadedFlag = {}
+  formatDate = formatDate
 
   getSrc(src: string): string {
     if (!src) {
@@ -69,6 +89,19 @@ export default class ContentList extends Vue {
     const base = join(contentDistRoot, RegExp.$1)
     return `${base}_320w.${ext} 320w, ${base}_768w.${ext} 768w, ${base}_1024w.${ext} 1024w, ${base}_1600w.${ext} 1600w`
   }
+
+  getSessionBadge(start: string | Date, end: string | Date): string {
+    start = start instanceof Date ? start : new Date(start)
+    end = end instanceof Date ? end : new Date(end)
+    const now = new Date()
+
+    if (end < now) {
+      return 'is-ended'
+    } else if (start > now) {
+      return 'is-upcoming'
+    }
+    return 'is-open'
+  }
 }
 </script>
 
@@ -83,6 +116,18 @@ export default class ContentList extends Vue {
   +mq
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
 
+  &.mode-events > .item .thumbnail::after
+    position: absolute
+    top: 10px
+    left: 10px
+    background-color: #fff
+    display: inline-block
+    padding: 5px 10px
+    border-radius: 3px
+    font-size: 12px
+    font-weight: bold
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1)
+
   & > .item
     display: inline-block
     transition: transform 0.3s ease 0s
@@ -93,6 +138,16 @@ export default class ContentList extends Vue {
     & > .link
       display: block
       color: #000
+
+    &.is-ended .thumbnail::after
+      display: none
+      content: 'Ended'
+
+    &.is-upcoming .thumbnail::after
+      content: 'Upcoming'
+
+    &.is-open .thumbnail::after
+      countent: 'Open'
 
     .thumbnail
       position: relative
@@ -132,7 +187,7 @@ export default class ContentList extends Vue {
         white-space: nowrap
         text-overflow: ellipsis
 
-      .year
+      .year,.session
         color: #888
         font-size: 13px
 </style>

@@ -14,6 +14,9 @@
         <nuxt-link tag="li" to="/news">
           News
         </nuxt-link>
+        <nuxt-link tag="li" to="/events">
+          Events
+        </nuxt-link>
       </ul>
       <ul class="social">
         <li class="icon icon--twitter">
