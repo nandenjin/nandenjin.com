@@ -51,7 +51,7 @@
     "sass-loader": "^10.1.1",
     "sharp": "^0.29.1",
     "simple-git": "^2.45.0",
-    "vue-eslint-parser": "^7.6.0",
+    "vue-eslint-parser": "^7.11.0",
     "vue-property-decorator": "^9.1.2"
   },
   "private": true,
