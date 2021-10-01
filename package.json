@@ -35,7 +35,7 @@
     "@types/resize-observer-browser": "^0.1.5",
     "@types/sharp": "^0.28.6",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.30.0",
+    "@typescript-eslint/parser": "^4.32.0",
     "consola": "^2.15.3",
     "es6-promise-pool": "^2.5.0",
     "eslint": "^7.32.0",
