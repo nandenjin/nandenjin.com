@@ -9,17 +9,26 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import ContentList from '~/components/ContentList.vue'
+import { EventMeta } from '~/types'
 
-interface Page {
+type Page = {
   body
-}
+} & EventMeta
 
 @Component({
   async asyncData({ $content }) {
-    const src = (await $content('pages/events')
+    let src = (await $content('pages/events')
       .sortBy('session_start', 'desc')
       .fetch<Page>()) as Page[]
-    console.log(src)
+
+    // Move TBA events (that should be at the end of array) to after upcoming/open events
+    const now = new Date()
+    const tbaEvents = src.filter(e => !e.session_start)
+    const upcomingOrOpenEvents = src.filter(
+      e => new Date(e.session_start) > now || new Date(e.session_end) > now
+    )
+    src.splice(-tbaEvents.length)
+    src.splice(upcomingOrOpenEvents.length, 0, ...tbaEvents)
 
     return {
       pages: src
