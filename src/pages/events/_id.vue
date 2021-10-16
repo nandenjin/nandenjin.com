@@ -8,10 +8,14 @@
 
       <p>
         {{
-          page.session_start ? formatDate(page.session_start, 'yyyy.MM.dd') : ''
+          page.session_start
+            ? formatDate(page.session_start, 'yyyy.MM.dd') +
+              '-' +
+              (page.session_end
+                ? formatDate(page.session_end, 'yyyy.MM.dd')
+                : '')
+            : 'To be annouced'
         }}
-        -
-        {{ page.session_end ? formatDate(page.session_end, 'yyyy.MM.dd') : '' }}
       </p>
 
       <nav class="toc">

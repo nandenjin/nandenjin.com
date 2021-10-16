@@ -39,9 +39,11 @@
             <div v-if="mode === 'works'" class="year">{{ content.year }}</div>
             <div v-else-if="mode === 'events'" class="session">
               {{
-                formatDate(content.session_start, 'yyyy.MM.dd') +
-                  ' - ' +
-                  formatDate(content.session_end, 'MM.dd')
+                content.session_start && content.session_end
+                  ? formatDate(content.session_start, 'yyyy.MM.dd') +
+                    ' - ' +
+                    formatDate(content.session_end, 'MM.dd')
+                  : 'To be annouced'
               }}
             </div>
           </figcaption>
@@ -91,6 +93,11 @@ export default class ContentList extends Vue {
   }
 
   getSessionBadge(start: string | Date, end: string | Date): string {
+    // If start is not set, treat as "upcoming"
+    if (!start) {
+      return 'is-upcoming'
+    }
+
     start = start instanceof Date ? start : new Date(start)
     end = end instanceof Date ? end : new Date(end)
     const now = new Date()
