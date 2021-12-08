@@ -41,17 +41,31 @@ import { Vue, Component } from 'vue-property-decorator'
 import ContentRenderer from '~/components/ContentRenderer'
 
 @Component({
-  async asyncData({ route, $content }) {
-    const id = route.params.id
-    const page = await $content('pages/works', id).fetch()
+  async asyncData({ route, $content, error }) {
+    try {
+      const id = route.params.id
+      const page = await $content('pages/works', id).fetch()
 
-    return {
-      page
+      return {
+        page,
+      }
+    } catch (e) {
+      if (e instanceof Error && e.message.match(/not found/i)) {
+        error({ statusCode: 404 })
+      } else {
+        error({
+          statusCode: 500,
+          message:
+            e instanceof Error
+              ? e.toString()
+              : `Non-error object was thrown: ${typeof e}`,
+        })
+      }
     }
   },
 
   components: {
-    ContentRenderer
+    ContentRenderer,
   },
 
   head(this: WorkPage) {
@@ -64,22 +78,22 @@ import ContentRenderer from '~/components/ContentRenderer'
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `${this.page.title_ja} / ${this.page.title_en} - Kazumi Inada`
+          content: `${this.page.title_ja} / ${this.page.title_en} - Kazumi Inada`,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: process.env.baseUrl + '/_nuxt/content' + this.page.thumbnail
+          content: process.env.baseUrl + '/_nuxt/content' + this.page.thumbnail,
         },
         { hid: 'og:description', property: 'og:description', content: '' },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: 'summary_large_image'
-        }
-      ]
+          content: 'summary_large_image',
+        },
+      ],
     }
-  }
+  },
 })
 export default class WorkPage extends Vue {
   page
@@ -101,16 +115,16 @@ export default class WorkPage extends Vue {
             '@type': 'ListItem',
             position: 1,
             name: 'Works',
-            item: process.env.baseUrl + '/works'
+            item: process.env.baseUrl + '/works',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: this.page.title_ja,
-            item: process.env.baseUrl + this.$route.path
-          }
-        ]
-      }
+            item: process.env.baseUrl + this.$route.path,
+          },
+        ],
+      },
     ])
   }
 }
