@@ -27,17 +27,31 @@ import ContentRenderer from '~/components/ContentRenderer'
 import { formatDate } from '~/lib/helpers'
 
 @Component({
-  async asyncData({ route, $content }) {
-    const id = route.params.id
-    const page = await $content('pages/news', id).fetch()
+  async asyncData({ route, $content, error }) {
+    try {
+      const id = route.params.id
+      const page = await $content('pages/news', id).fetch()
 
-    return {
-      page
+      return {
+        page,
+      }
+    } catch (e) {
+      if (e instanceof Error && e.message.match(/not found/i)) {
+        error({ statusCode: 404 })
+      } else {
+        error({
+          statusCode: 500,
+          message:
+            e instanceof Error
+              ? e.toString()
+              : `Non-error object was thrown: ${typeof e}`,
+        })
+      }
     }
   },
 
   components: {
-    ContentRenderer
+    ContentRenderer,
   },
 
   head(this: NewsPage) {
@@ -50,12 +64,12 @@ import { formatDate } from '~/lib/helpers'
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `${this.page.title_ja} / ${this.page.title_en} - Kazumi Inada`
+          content: `${this.page.title_ja} / ${this.page.title_en} - Kazumi Inada`,
         },
-        { hid: 'og:description', property: 'og:description', content: '' }
-      ]
+        { hid: 'og:description', property: 'og:description', content: '' },
+      ],
     }
-  }
+  },
 })
 export default class NewsPage extends Vue {
   page
@@ -67,7 +81,7 @@ export default class NewsPage extends Vue {
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: this.page.title_ja,
-        dateModified: new Date(this.page.release).toISOString()
+        dateModified: new Date(this.page.release).toISOString(),
       },
       {
         '@context': 'https://schema.org',
@@ -77,16 +91,16 @@ export default class NewsPage extends Vue {
             '@type': 'ListItem',
             position: 1,
             name: 'News',
-            item: process.env.baseUrl + '/news'
+            item: process.env.baseUrl + '/news',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: this.page.title_ja,
-            item: process.env.baseUrl + this.$route.path
-          }
-        ]
-      }
+            item: process.env.baseUrl + this.$route.path,
+          },
+        ],
+      },
     ])
   }
 }

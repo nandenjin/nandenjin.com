@@ -120,27 +120,41 @@ import { formatDate, toContentURL } from '~/lib/helpers'
 import { WorkMeta } from '~/types'
 
 @Component({
-  async asyncData({ route, $content }) {
-    const id = route.params.id
-    const page = (await $content(
-      'pages/events',
-      id
-    ).fetch()) as IContentDocument
+  async asyncData({ route, $content, error }) {
+    try {
+      const id = route.params.id
+      const page = (await $content(
+        'pages/events',
+        id
+      ).fetch()) as IContentDocument
 
-    const relatedWorks = await $content('pages/works')
-      .where({ slug: { $in: page.related_works } })
-      .fetch()
+      const relatedWorks = await $content('pages/works')
+        .where({ slug: { $in: page.related_works } })
+        .fetch()
 
-    return {
-      page,
-      relatedWorks
+      return {
+        page,
+        relatedWorks,
+      }
+    } catch (e) {
+      if (e instanceof Error && e.message.match(/not found/i)) {
+        error({ statusCode: 404 })
+      } else {
+        error({
+          statusCode: 500,
+          message:
+            e instanceof Error
+              ? e.toString()
+              : `Non-error object was thrown: ${typeof e}`,
+        })
+      }
     }
   },
 
   components: {
     ContentRenderer,
     XPicture,
-    EmbedMap
+    EmbedMap,
   },
 
   head(this: EventPage) {
@@ -153,22 +167,22 @@ import { WorkMeta } from '~/types'
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `${this.page.title_ja} / ${this.page.title_en} - Kazumi Inada`
+          content: `${this.page.title_ja} / ${this.page.title_en} - Kazumi Inada`,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: process.env.baseUrl + '/_nuxt/content' + this.page.thumbnail
+          content: process.env.baseUrl + '/_nuxt/content' + this.page.thumbnail,
         },
         { hid: 'og:description', property: 'og:description', content: '' },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: 'summary_large_image'
-        }
-      ]
+          content: 'summary_large_image',
+        },
+      ],
     }
-  }
+  },
 })
 export default class EventPage extends Vue {
   page
@@ -182,7 +196,7 @@ export default class EventPage extends Vue {
       {
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: this.page.title_ja
+        headline: this.page.title_ja,
         // dateModified: new Date(this.page.release).toISOString()
       },
       {
@@ -193,16 +207,16 @@ export default class EventPage extends Vue {
             '@type': 'ListItem',
             position: 1,
             name: 'Events',
-            item: process.env.baseUrl + '/events'
+            item: process.env.baseUrl + '/events',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: this.page.title_ja,
-            item: process.env.baseUrl + this.$route.path
-          }
-        ]
-      }
+            item: process.env.baseUrl + this.$route.path,
+          },
+        ],
+      },
     ])
   }
 }
