@@ -49,7 +49,7 @@
     "rimraf": "^3.0.2",
     "sass": "^1.49.7",
     "sass-loader": "^10.1.1",
-    "sharp": "^0.30.0",
+    "sharp": "^0.30.1",
     "simple-git": "^3.2.6",
     "vue-eslint-parser": "^8.2.0",
     "vue-property-decorator": "^9.1.2"
