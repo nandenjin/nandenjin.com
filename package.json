@@ -50,7 +50,7 @@
     "sass": "^1.49.9",
     "sass-loader": "^10.1.1",
     "sharp": "^0.30.3",
-    "simple-git": "^3.3.0",
+    "simple-git": "^3.5.0",
     "vue-eslint-parser": "^8.3.0",
     "vue-property-decorator": "^9.1.2"
   },
