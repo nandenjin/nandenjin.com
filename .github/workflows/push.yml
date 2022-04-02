@@ -46,7 +46,7 @@ jobs:
         working-directory: content
 
       - name: Cache build
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: build-cache
         with:
           path: node_modules/.cache/builder-module
@@ -81,7 +81,7 @@ jobs:
         working-directory: content
 
       - name: Cache build
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: build-cache
         with:
           path: node_modules/.cache/builder-module
