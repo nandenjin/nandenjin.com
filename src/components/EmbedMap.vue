@@ -1,7 +1,7 @@
 <template>
   <iframe
     class="embed-map"
-    style="border:0"
+    style="border: 0"
     loading="lazy"
     allowfullscreen
     :src="src"

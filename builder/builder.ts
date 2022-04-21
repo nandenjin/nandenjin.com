@@ -16,11 +16,11 @@ const builderModule: Module = async function ExampleModule() {
         for (const { path, content } of assets) {
           compilation.assets[join('content', 'assets', path)] = {
             source: () => content,
-            size: () => content.length
+            size: () => content.length,
           }
         }
       })
-    }
+    },
   })
 }
 

@@ -18,15 +18,9 @@
           />
         </h1>
         <nav class="nav">
-          <nuxt-link class="item" to="/works">
-            Works
-          </nuxt-link>
-          <nuxt-link class="item" to="/events">
-            Events
-          </nuxt-link>
-          <nuxt-link class="item" to="/profile">
-            Profile
-          </nuxt-link>
+          <nuxt-link class="item" to="/works"> Works </nuxt-link>
+          <nuxt-link class="item" to="/events"> Events </nuxt-link>
+          <nuxt-link class="item" to="/profile"> Profile </nuxt-link>
         </nav>
       </div>
       <nuxt-link tag="section" class="eye-catch-info" to="/works/residents">
@@ -44,12 +38,12 @@ import ImageBox from '~/components/ImageBox.vue'
 @Component({
   layout: 'plain',
   components: {
-    ImageBox
+    ImageBox,
   },
   head: {
     title: 'Kazumi Inada | 稲田和巳',
-    meta: [{ hid: 'og:type', property: 'og:type', content: 'website' }]
-  }
+    meta: [{ hid: 'og:type', property: 'og:type', content: 'website' }],
+  },
 })
 export default class IndexPage extends Vue {}
 </script>

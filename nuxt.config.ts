@@ -12,16 +12,16 @@ const config: NuxtConfig = {
 
   buildModules: [
     '@nuxt/typescript-build',
-    resolve(__dirname, './builder/builder.ts')
+    resolve(__dirname, './builder/builder.ts'),
   ],
   srcDir: resolve(__dirname, './src'),
 
   env: {
-    baseUrl
+    baseUrl,
   },
 
   publicRuntimeConfig: {
-    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
   },
 
   sitemap: {
@@ -29,18 +29,17 @@ const config: NuxtConfig = {
     gzip: true,
     xslUrl: '/sitemap.xsl',
     routes: async (): Promise<string[]> => {
-      const pages = ((await Promise.all(
-        ['news', 'works', 'events'].map(fragment =>
-          $content('pages/' + fragment)
-            .only(['path'])
-            .fetch()
-        )
-      )) as FetchReturn[]).reduce(
-        (a, p) => a.concat(p),
-        [] as FetchReturn[]
-      )
+      const pages = (
+        (await Promise.all(
+          ['news', 'works', 'events'].map(fragment =>
+            $content('pages/' + fragment)
+              .only(['path'])
+              .fetch()
+          )
+        )) as FetchReturn[]
+      ).reduce((a, p) => a.concat(p), [] as FetchReturn[])
       return pages.map(({ path }) => path.replace(/^\/pages/, ''))
-    }
+    },
   },
 
   head: {
@@ -65,35 +64,35 @@ const config: NuxtConfig = {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'Kazumi Inada Portfolio'
+        content: 'Kazumi Inada Portfolio',
       },
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Kazumi Inada Portfolio'
+        content: 'Kazumi Inada Portfolio',
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: description
+        content: description,
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: baseUrl + '/site-cover.png'
+        content: baseUrl + '/site-cover.png',
       },
 
       {
         hid: 'twitter:card',
         name: 'twitter:card',
-        content: 'summary_large_image'
+        content: 'summary_large_image',
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@nandenjin'
+        content: '@nandenjin',
       },
-      { hid: 'twitter:site', name: 'twitter:site', content: '@nandenjin' }
+      { hid: 'twitter:site', name: 'twitter:site', content: '@nandenjin' },
     ],
 
     link: [
@@ -102,25 +101,25 @@ const config: NuxtConfig = {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/favicon-32x32.png'
+        href: '/favicon-32x32.png',
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/favicon-16x16.png'
-      }
-    ]
+        href: '/favicon-16x16.png',
+      },
+    ],
   },
 
   pageTransition: {
     name: 'page-fade',
-    mode: 'out-in'
+    mode: 'out-in',
   },
 
   layoutTransition: {
     name: 'page-fade',
-    mode: 'out-in'
+    mode: 'out-in',
   },
 
   css: ['normalize.css', '~/assets/style/global.sass'],
@@ -128,12 +127,12 @@ const config: NuxtConfig = {
   modules: [
     ['@nuxtjs/google-analytics', { id: 'UA-73443235-3' }],
     '@nuxtjs/sitemap',
-    '@nuxt/content'
+    '@nuxt/content',
   ],
 
   generate: {
     dir: 'dist',
-    fallback: true
+    fallback: true,
   },
 
   build: {
@@ -143,9 +142,9 @@ const config: NuxtConfig = {
       vue: {
         transformAssetUrls: {
           'image-box': 'src',
-          'work-page-renderer': 'thumbnail'
-        }
-      }
+          'work-page-renderer': 'thumbnail',
+        },
+      },
     },
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -153,15 +152,15 @@ const config: NuxtConfig = {
       // contents/pluginでfsのロードエラーが起きる
       // https://github.com/nuxt-community/dotenv-module/issues/11
       config.node = {
-        fs: 'empty'
+        fs: 'empty',
       }
-    }
+    },
   },
 
   content: {
     dir: resolve(__dirname, 'content'),
-    fullTextSearchFields: []
-  }
+    fullTextSearchFields: [],
+  },
 }
 
 export default config

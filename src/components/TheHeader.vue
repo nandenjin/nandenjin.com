@@ -5,18 +5,10 @@
     </nuxt-link>
     <nav class="menu">
       <ul class="in-site">
-        <nuxt-link tag="li" to="/works">
-          Works
-        </nuxt-link>
-        <nuxt-link tag="li" to="/profile">
-          Profile
-        </nuxt-link>
-        <nuxt-link tag="li" to="/news">
-          News
-        </nuxt-link>
-        <nuxt-link tag="li" to="/events">
-          Events
-        </nuxt-link>
+        <nuxt-link tag="li" to="/works"> Works </nuxt-link>
+        <nuxt-link tag="li" to="/profile"> Profile </nuxt-link>
+        <nuxt-link tag="li" to="/news"> News </nuxt-link>
+        <nuxt-link tag="li" to="/events"> Events </nuxt-link>
       </ul>
       <ul class="social">
         <li class="icon icon--twitter">

@@ -34,16 +34,20 @@ interface Page {
     return {
       pages: await Promise.all(
         items.map(path => $content(path.replace(/\.md$/, '')).fetch())
-      )
+      ),
     }
   },
   head: {
     title: 'Works',
     meta: [
-      { hid: 'og:title', property: 'og:title', content: 'Works - Kazumi Inada' }
-    ]
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Works - Kazumi Inada',
+      },
+    ],
   },
-  components: { ContentList }
+  components: { ContentList },
 })
 export default class WorksIndexPage extends Vue {
   get jsonLD(): string {
@@ -55,10 +59,10 @@ export default class WorksIndexPage extends Vue {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Works'
-          }
-        ]
-      }
+            name: 'Works',
+          },
+        ],
+      },
     ])
   }
 }

@@ -123,10 +123,7 @@ import { WorkMeta } from '~/types'
   async asyncData({ route, $content, error }) {
     try {
       const id = route.params.id
-      const page = (await $content(
-        'pages/events',
-        id
-      ).fetch()) as FetchReturn
+      const page = (await $content('pages/events', id).fetch()) as FetchReturn
 
       const relatedWorks = await $content('pages/works')
         .where({ slug: { $in: page.related_works } })

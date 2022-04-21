@@ -3,9 +3,7 @@
     <div class="profile">
       <div>
         <h1>Kazumi Inada / 稲田 和巳</h1>
-        <div class="title">
-          Designer / Engineer
-        </div>
+        <div class="title">Designer / Engineer</div>
         <content-renderer :content="page" />
       </div>
     </div>
@@ -22,7 +20,7 @@ import ContentRenderer from '~/components/ContentRenderer'
   async asyncData({ $content }) {
     const page = await $content('pages/profile/index').fetch()
     return {
-      page
+      page,
     }
   },
   head: {
@@ -31,13 +29,13 @@ import ContentRenderer from '~/components/ContentRenderer'
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Profile - Kazumi Inada'
-      }
-    ]
+        content: 'Profile - Kazumi Inada',
+      },
+    ],
   },
   components: {
-    ContentRenderer
-  }
+    ContentRenderer,
+  },
 })
 export default class ProfilePage extends Vue {
   get jsonLD(): string {
@@ -55,8 +53,8 @@ export default class ProfilePage extends Vue {
           'https://www.linkedin.com/in/nandenjin',
           'https://twitter.com/nandenjin',
           'https://instagram.com/nandenjin',
-          'https://github.com/nandenjin'
-        ]
+          'https://github.com/nandenjin',
+        ],
       },
       {
         '@context': 'https://schema.org',
@@ -65,10 +63,10 @@ export default class ProfilePage extends Vue {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Profile'
-          }
-        ]
-      }
+            name: 'Profile',
+          },
+        ],
+      },
     ])
   }
 }

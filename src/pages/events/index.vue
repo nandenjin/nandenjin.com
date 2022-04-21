@@ -31,7 +31,7 @@ type Page = {
     src.splice(upcomingOrOpenEvents.length, 0, ...tbaEvents)
 
     return {
-      pages: src
+      pages: src,
     }
   },
   head: {
@@ -40,11 +40,11 @@ type Page = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Events - Kazumi Inada'
-      }
-    ]
+        content: 'Events - Kazumi Inada',
+      },
+    ],
   },
-  components: { ContentList }
+  components: { ContentList },
 })
 export default class EventsIndexPage extends Vue {
   get jsonLD(): string {
@@ -56,10 +56,10 @@ export default class EventsIndexPage extends Vue {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Events'
-          }
-        ]
-      }
+            name: 'Events',
+          },
+        ],
+      },
     ])
   }
 }

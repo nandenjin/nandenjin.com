@@ -30,8 +30,8 @@ const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
           props: {
             ...node.props,
             src: node.props.src ? toContentURL(node.props.src) : undefined,
-            sizes: IMAGE_SIZES_RULE
-          }
+            sizes: IMAGE_SIZES_RULE,
+          },
         })
       }
 
@@ -52,8 +52,8 @@ const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
                   ? poster
                   : toContentURL(poster)
                 : undefined,
-              posterSizes: IMAGE_SIZES_RULE
-            }
+              posterSizes: IMAGE_SIZES_RULE,
+            },
           })
         }
       }
@@ -82,11 +82,11 @@ const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
     return h(
       'div',
       {
-        class: 'content-renderer'
+        class: 'content-renderer',
       },
       content.body.children.map(n => proc(n))
     )
-  }
+  },
 })
 export default class ContentRenderer extends Vue {
   @Prop() content

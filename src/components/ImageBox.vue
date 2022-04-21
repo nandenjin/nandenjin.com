@@ -5,7 +5,7 @@
       'is-loaded': loaded,
       'is-player': playerMode,
       'is-playing': playing,
-      'is-cover': cover
+      'is-cover': cover,
     }"
     @click="playing = playerMode"
   >

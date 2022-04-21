@@ -14,9 +14,7 @@
     </div>
     <div v-else>
       <image-box :src="poster" :sizes="posterSizes" />
-      <button class="play-button" @click="playing = true">
-        Play
-      </button>
+      <button class="play-button" @click="playing = true">Play</button>
     </div>
   </div>
 </template>
@@ -27,8 +25,8 @@ import ImageBox from '~/components/ImageBox.vue'
 
 @Component<YoutubeEmbed>({
   components: {
-    ImageBox
-  }
+    ImageBox,
+  },
 })
 export default class YoutubeEmbed extends Vue {
   @Prop(String) src!: string

@@ -122,7 +122,7 @@ export async function getAssets(
 
         assetsTmp.push({
           path: relative(src, entPath),
-          content: fileContent
+          content: fileContent,
         })
 
         if (ent.name.match(/^(.+)\.(jpg|png|gif|webp)$/)) {
@@ -132,20 +132,18 @@ export async function getAssets(
             const jpgDistPathWithSize = join(dir, `${basename}_${size}w.jpg`)
             const webpDistPathWithSize = join(dir, `${basename}_${size}w.webp`)
 
-            const data = sharp(fileContent)
-              .clone()
-              .resize(size)
+            const data = sharp(fileContent).clone().resize(size)
             assetsTmp.push({
               path: jpgDistPathWithSize,
               content:
                 (await getCache(jpgDistPathWithSize)) ||
-                (await data.jpeg().toBuffer())
+                (await data.jpeg().toBuffer()),
             })
             assetsTmp.push({
               path: webpDistPathWithSize,
               content:
                 (await getCache(webpDistPathWithSize)) ||
-                (await data.webp().toBuffer())
+                (await data.webp().toBuffer()),
             })
           }
         }
@@ -155,7 +153,7 @@ export async function getAssets(
           newCache.hashes[entPath] = hashString
           for (const { path, content } of assetsTmp) {
             await fs.mkdir(dirname(join(cacheDataDir, path)), {
-              recursive: true
+              recursive: true,
             })
             await fs.writeFile(join(cacheDataDir, path), content)
           }
@@ -187,7 +185,7 @@ export async function getAssets(
     try {
       await fs.mkdir(dirname(cacheDbPath), { recursive: true })
       await fs.writeFile(cacheDbPath, JSON.stringify(newCache, null, 2), {
-        encoding: 'utf-8'
+        encoding: 'utf-8',
       })
     } catch (e) {
       consola.debug(e)

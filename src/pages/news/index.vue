@@ -49,11 +49,11 @@ import { formatDate } from '~/lib/helpers'
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'News - Kazumi Inada'
-        }
-      ]
+          content: 'News - Kazumi Inada',
+        },
+      ],
     }
-  }
+  },
 })
 export default class NewsIndexPage extends Vue {
   pages
@@ -68,10 +68,10 @@ export default class NewsIndexPage extends Vue {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'News'
-          }
-        ]
-      }
+            name: 'News',
+          },
+        ],
+      },
     ])
   }
 }
