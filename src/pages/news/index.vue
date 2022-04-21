@@ -14,13 +14,13 @@
 </template>
 
 <script lang="ts">
-import { IContentDocument } from '@nuxt/content/types/content'
 import { Vue, Component } from 'vue-property-decorator'
+import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { formatDate } from '~/lib/helpers'
 
 @Component({
   async asyncData({ $content }) {
-    const src = (await $content('pages/news/index').fetch()) as IContentDocument
+    const src = (await $content('pages/news/index').fetch()) as FetchReturn
     const items: string[] = []
     const proc = node => {
       if (node.type === 'text') {
