@@ -111,7 +111,7 @@
 <script lang="ts">
 /* eslint camelcase: 0 */
 
-import { IContentDocument } from '@nuxt/content/types/content'
+import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Vue, Component } from 'nuxt-property-decorator'
 import ContentRenderer from '~/components/ContentRenderer'
 import XPicture from '~/components/XPicture.vue'
@@ -126,7 +126,7 @@ import { WorkMeta } from '~/types'
       const page = (await $content(
         'pages/events',
         id
-      ).fetch()) as IContentDocument
+      ).fetch()) as FetchReturn
 
       const relatedWorks = await $content('pages/works')
         .where({ slug: { $in: page.related_works } })

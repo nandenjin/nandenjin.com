@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { NuxtConfig } from '@nuxt/types'
 import { $content } from '@nuxt/content'
-import { IContentDocument } from '@nuxt/content/types/content'
+import { FetchReturn } from '@nuxt/content/types/query-builder'
 
 const baseUrl = 'https://www.nandenjin.com'
 const description =
@@ -35,9 +35,9 @@ const config: NuxtConfig = {
             .only(['path'])
             .fetch()
         )
-      )) as IContentDocument[]).reduce(
+      )) as FetchReturn[]).reduce(
         (a, p) => a.concat(p),
-        [] as IContentDocument[]
+        [] as FetchReturn[]
       )
       return pages.map(({ path }) => path.replace(/^\/pages/, ''))
     }
