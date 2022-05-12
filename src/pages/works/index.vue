@@ -15,26 +15,43 @@ interface Page {
 }
 
 @Component({
-  async asyncData({ $content }) {
-    const src = (await $content('pages/works/index').fetch<Page>()) as Page
-    const items: string[] = []
-    const proc = node => {
-      if (node.type === 'text') {
-        return
-      }
-      if (node.tag === 'nuxt-link') {
-        items.push(node.props.to)
-      }
-      for (const c of node.children) {
-        proc(c)
-      }
+  async asyncData({ $content, query }) {
+    const pages: unknown[] = []
+
+    // Filter by query (tag=xxx) param enebled
+    if (query.tag?.length > 0) {
+      const src = (await $content('pages/works')
+        .where({ tags: { $regex: query.tag } })
+        .fetch<Page>()) as Page[]
+      pages.push(...src)
     }
-    proc(src.body)
+
+    // Filter disabled - pick up list
+    else {
+      const src = (await $content('pages/works/index').fetch<Page>()) as Page
+
+      const items: string[] = []
+      const proc = node => {
+        if (node.type === 'text') {
+          return
+        }
+        if (node.tag === 'nuxt-link') {
+          items.push(node.props.to)
+        }
+        for (const c of node.children) {
+          proc(c)
+        }
+      }
+      proc(src.body)
+      pages.push(
+        ...(await Promise.all(
+          items.map(path => $content(path.replace(/\.md$/, '')).fetch())
+        ))
+      )
+    }
 
     return {
-      pages: await Promise.all(
-        items.map(path => $content(path.replace(/\.md$/, '')).fetch())
-      ),
+      pages,
     }
   },
   head: {
