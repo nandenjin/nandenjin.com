@@ -9,8 +9,8 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import ContentList from '~/components/ContentList.vue'
 import WorksTagFilterSelector from '../../components/WorksTagFilterSelector.vue'
+import ContentList from '~/components/ContentList.vue'
 
 interface Page {
   body
