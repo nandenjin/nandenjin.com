@@ -1,34 +1,17 @@
-name: CI
+name: Delivery
 
 on:
-  push:
-    branches: [dev, master, 'renovate/*']
-  pull_request:
-    branches: [dev, '!renovate/*']
-  workflow_dispatch:
+  schedule:
+    - cron: '5 5 * * 1'
 
 jobs:
-  lint:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Lint
-        run: yarn lint
-
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
+          ref: master
 
       - uses: actions/setup-node@v3
         with:
@@ -54,3 +37,8 @@ jobs:
 
       - name: Build
         run: yarn generate
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+
+      - name: Deploy
+        run: yarn run deploy --token=${{ secrets.FIREBASE_TOKEN }}
