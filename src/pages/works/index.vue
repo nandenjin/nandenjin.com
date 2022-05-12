@@ -1,6 +1,7 @@
 <template>
   <main class="main main-with-margin">
-    <content-list :src="pages" />
+    <WorksTagFilterSelector />
+    <content-list :src="pages" class="content" />
     <!-- eslint-disable-next-line vue/no-v-html -->
     <script type="application/ld+json" v-html="jsonLD" />
   </main>
@@ -9,6 +10,7 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import ContentList from '~/components/ContentList.vue'
+import WorksTagFilterSelector from '../../components/WorksTagFilterSelector.vue'
 
 interface Page {
   body
@@ -64,7 +66,8 @@ interface Page {
       },
     ],
   },
-  components: { ContentList },
+  components: { ContentList, WorksTagFilterSelector },
+  watchQuery: ['tag'],
 })
 export default class WorksIndexPage extends Vue {
   get jsonLD(): string {
@@ -84,3 +87,8 @@ export default class WorksIndexPage extends Vue {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.content
+  margin-top: 20px
+</style>
