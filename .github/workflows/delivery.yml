@@ -3,6 +3,7 @@ name: Delivery
 on:
   schedule:
     - cron: '5 5 * * 1'
+  workflow_dispatch:
 
 jobs:
   deploy:
