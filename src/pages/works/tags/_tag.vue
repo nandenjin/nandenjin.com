@@ -8,38 +8,22 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
-import WorksTagFilterSelector from '../../components/WorksTagFilterSelector.vue'
-import ContentList from '~/components/ContentList.vue'
+import { Vue, Component, Watch } from 'nuxt-property-decorator'
 
 interface Page {
   body
 }
 
 @Component({
-  async asyncData({ $content }) {
+  async asyncData({ $content, route }) {
     const pages: unknown[] = []
+    const tag = route.params.tag
 
-    const src = (await $content('pages/works/index').fetch<Page>()) as Page
+    const src = (await $content('pages/works')
+      .where({ tags: { $regex: tag } })
+      .fetch<Page[]>()) as Page[]
 
-    const items: string[] = []
-    const proc = node => {
-      if (node.type === 'text') {
-        return
-      }
-      if (node.tag === 'nuxt-link') {
-        items.push(node.props.to)
-      }
-      for (const c of node.children) {
-        proc(c)
-      }
-    }
-    proc(src.body)
-    pages.push(
-      ...(await Promise.all(
-        items.map(path => $content(path.replace(/\.md$/, '')).fetch())
-      ))
-    )
+    pages.push(...src)
 
     return {
       pages,
