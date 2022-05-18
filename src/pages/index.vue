@@ -52,6 +52,7 @@ export default class IndexPage extends Vue {}
   display: flex
   height: 100vh
   flex-direction: column
+  overflow: hidden
 
   +mq(md)
     flex-direction: row
