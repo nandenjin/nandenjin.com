@@ -8,7 +8,6 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import ContentList from '~/components/ContentList.vue'
 import { EventMeta } from '~/types'
 
 type Page = {
@@ -44,7 +43,6 @@ type Page = {
       },
     ],
   },
-  components: { ContentList },
 })
 export default class EventsIndexPage extends Vue {
   get jsonLD(): string {

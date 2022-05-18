@@ -21,13 +21,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import ImageBox from '~/components/ImageBox.vue'
 
-@Component<YoutubeEmbed>({
-  components: {
-    ImageBox,
-  },
-})
+@Component<YoutubeEmbed>({})
 export default class YoutubeEmbed extends Vue {
   @Prop(String) src!: string
   @Prop(String) poster!: string

@@ -38,7 +38,6 @@
 /* eslint camelcase: 0 */
 
 import { Vue, Component } from 'vue-property-decorator'
-import ContentRenderer from '~/components/ContentRenderer'
 
 @Component({
   async asyncData({ route, $content, error }) {
@@ -62,10 +61,6 @@ import ContentRenderer from '~/components/ContentRenderer'
         })
       }
     }
-  },
-
-  components: {
-    ContentRenderer,
   },
 
   head(this: WorkPage) {

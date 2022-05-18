@@ -113,9 +113,6 @@
 
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Vue, Component } from 'nuxt-property-decorator'
-import ContentRenderer from '~/components/ContentRenderer'
-import XPicture from '~/components/XPicture.vue'
-import EmbedMap from '~/components/EmbedMap.vue'
 import { formatDate, toContentURL } from '~/lib/helpers'
 import { WorkMeta } from '~/types'
 
@@ -146,12 +143,6 @@ import { WorkMeta } from '~/types'
         })
       }
     }
-  },
-
-  components: {
-    ContentRenderer,
-    XPicture,
-    EmbedMap,
   },
 
   head(this: EventPage) {

@@ -23,7 +23,6 @@
 /* eslint camelcase: 0 */
 
 import { Vue, Component } from 'nuxt-property-decorator'
-import ContentRenderer from '~/components/ContentRenderer'
 import { formatDate } from '~/lib/helpers'
 
 @Component({
@@ -48,10 +47,6 @@ import { formatDate } from '~/lib/helpers'
         })
       }
     }
-  },
-
-  components: {
-    ContentRenderer,
   },
 
   head(this: NewsPage) {

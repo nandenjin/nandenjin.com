@@ -33,13 +33,9 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import ImageBox from '~/components/ImageBox.vue'
 
 @Component({
   layout: 'plain',
-  components: {
-    ImageBox,
-  },
   head: {
     title: 'Kazumi Inada | 稲田和巳',
     meta: [{ hid: 'og:type', property: 'og:type', content: 'website' }],

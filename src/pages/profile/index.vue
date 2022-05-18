@@ -14,7 +14,6 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import ContentRenderer from '~/components/ContentRenderer'
 
 @Component({
   async asyncData({ $content }) {
@@ -32,9 +31,6 @@ import ContentRenderer from '~/components/ContentRenderer'
         content: 'Profile - Kazumi Inada',
       },
     ],
-  },
-  components: {
-    ContentRenderer,
   },
 })
 export default class ProfilePage extends Vue {

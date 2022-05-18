@@ -37,9 +37,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import XPicture from './XPicture.vue'
 
-@Component({ components: { XPicture } })
+@Component({})
 export default class ImageBox extends Vue {
   @Prop(String) readonly src!: string
   @Prop(String) readonly alt: string | undefined
