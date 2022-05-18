@@ -1,10 +1,10 @@
 <template>
   <ul>
     <li><nuxt-link to="/works">Pick up</nuxt-link></li>
-    <li><nuxt-link to="/works?tag=art">Art</nuxt-link></li>
-    <li><nuxt-link to="/works?tag=design">Design</nuxt-link></li>
-    <li><nuxt-link to="/works?tag=web">Web</nuxt-link></li>
-    <li><nuxt-link to="/works?tag=stage">Stage</nuxt-link></li>
+    <li><nuxt-link to="/works/tags/art">Art</nuxt-link></li>
+    <li><nuxt-link to="/works/tags/design">Design</nuxt-link></li>
+    <li><nuxt-link to="/works/tags/web">Web</nuxt-link></li>
+    <li><nuxt-link to="/works/tags/stage">Stage</nuxt-link></li>
   </ul>
 </template>
 

@@ -15,6 +15,7 @@ const config: NuxtConfig = {
     resolve(__dirname, './builder/builder.ts'),
   ],
   srcDir: resolve(__dirname, './src'),
+  components: true,
 
   env: {
     baseUrl,
