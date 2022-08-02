@@ -33,6 +33,8 @@ jobs:
         with:
           path: node_modules/.cache/builder-module
           key: builder-${{ steps.content-commit-id.outputs.id }}
+          restore-keys: |
+            builder-
 
       - name: Build
         run: yarn generate
