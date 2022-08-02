@@ -154,7 +154,7 @@ export default class ContentList extends Vue {
       content: 'Upcoming'
 
     &.is-open .thumbnail::after
-      countent: 'Open'
+      content: 'Open'
 
     .thumbnail
       position: relative
