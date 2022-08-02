@@ -26,7 +26,8 @@ type Page = {
     const upcomingOrOpenEvents = src.filter(
       e => new Date(e.session_start) > now || new Date(e.session_end) > now
     )
-    src.splice(-tbaEvents.length)
+
+    src.splice(-tbaEvents.length, tbaEvents.length)
     src.splice(upcomingOrOpenEvents.length, 0, ...tbaEvents)
 
     return {
