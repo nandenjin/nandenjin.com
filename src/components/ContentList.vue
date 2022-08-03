@@ -119,9 +119,10 @@ export default class ContentList extends Vue {
 .list-container
   display: grid
   grid-gap: 50px
+  grid-template-columns: 100%
 
   +mq
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr))
 
   &.mode-events > .item .thumbnail::after
     position: absolute
