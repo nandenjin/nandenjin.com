@@ -21,6 +21,7 @@ interface Page {
 
     const src = (await $content('pages/works')
       .where({ tags: { $regex: tag } })
+      .sortBy('release', 'desc')
       .fetch<Page[]>()) as Page[]
 
     pages.push(...src)
