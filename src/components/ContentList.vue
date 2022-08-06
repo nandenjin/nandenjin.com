@@ -20,12 +20,12 @@
               <source
                 type="image/webp"
                 :srcset="getSrcSet(content.thumbnail, 'webp')"
-                sizes="(max-width: 400px) 100vw, 30vw"
+                sizes="(max-width: 880px) 100vw, 30vw"
               />
               <source
                 type="image/jpeg"
                 :srcset="getSrcSet(content.thumbnail, 'jpg')"
-                sizes="(max-width: 400px) 100vw, 30vw"
+                sizes="(max-width: 880px) 100vw, 30vw"
               />
               <img
                 :src="getSrc(content.thumbnail)"
