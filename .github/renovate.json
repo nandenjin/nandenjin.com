@@ -3,7 +3,6 @@
   "extends": ["config:base"],
   "labels": ["dependencies"],
   "lockFileMaintenance": { "enabled": true },
-  "stabilityDays": 7,
   "packageRules": [
     {
       "matchUpdateTypes": [
