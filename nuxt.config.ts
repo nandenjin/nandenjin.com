@@ -125,11 +125,11 @@ const config: NuxtConfig = {
 
   css: ['normalize.css', '~/assets/style/global.sass'],
 
-  modules: [
-    ['@nuxtjs/google-analytics', { id: 'UA-73443235-3' }],
-    '@nuxtjs/sitemap',
-    '@nuxt/content',
-  ],
+  modules: ['@nuxtjs/gtm', '@nuxtjs/sitemap', '@nuxt/content'],
+
+  gtm: {
+    id: 'GTM-T7VHZDX',
+  },
 
   generate: {
     dir: 'dist',
