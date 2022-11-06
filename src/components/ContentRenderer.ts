@@ -82,7 +82,7 @@ const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
     return h(
       'div',
       {
-        class: 'content-renderer',
+        class: 'content-renderer content-root',
       },
       content.body.children.map(n => proc(n))
     )
