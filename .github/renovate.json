@@ -3,6 +3,9 @@
   "extends": ["config:base"],
   "labels": ["dependencies"],
   "lockFileMaintenance": { "enabled": true },
+  "schedule": [
+    "* 3 5 * *"
+  ],
   "packageRules": [
     {
       "matchUpdateTypes": [
