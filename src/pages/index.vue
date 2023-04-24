@@ -2,7 +2,7 @@
   <main class="top-container">
     <image-box
       class="eye-catch"
-      src="/_nuxt/content/assets/works/sympathy/sympathy_0.png"
+      src="/_nuxt/content/assets/works/ushio-rpng/center_1.jpg"
       alt=""
       sizes="(max-width: 768px) 100vw 38vw"
       :cover="true"
@@ -24,8 +24,8 @@
         </nav>
       </div>
       <nuxt-link tag="section" class="eye-catch-info" to="/works/residents">
-        <h3>"Instant Sympathy"</h3>
-        <p>I/O (Kazumi Inada + Takuto Okamoto), 2018-2020</p>
+        <h3>"Tide (Roppongi)"</h3>
+        <p>Kazumi Inada, 2023</p>
       </nuxt-link>
     </div>
   </main>
