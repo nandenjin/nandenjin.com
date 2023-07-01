@@ -14,6 +14,11 @@
         "type": 301
       },
       {
+        "source": "/",
+        "destination": "/works",
+        "type": 302
+      },
+      {
         "source": "/w/:path*",
         "destination": "/works/:path*",
         "type": 302
