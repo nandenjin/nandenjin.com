@@ -2,8 +2,6 @@
   <main class="main doc">
     <div class="profile">
       <div>
-        <h1>Kazumi Inada / 稲田 和巳</h1>
-        <div class="title">Designer / Engineer</div>
         <content-renderer :content="page" />
       </div>
     </div>
