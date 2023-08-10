@@ -34,7 +34,7 @@
   "devDependencies": {
     "@nuxt/typescript-build": "2.1.0",
     "@types/resize-observer-browser": "0.1.7",
-    "@types/sharp": "0.31.0",
+    "@types/sharp": "0.31.1",
     "@typescript-eslint/eslint-plugin": "5.43.0",
     "@typescript-eslint/parser": "5.43.0",
     "consola": "2.15.3",
@@ -50,7 +50,7 @@
     "rimraf": "3.0.2",
     "sass": "1.65.1",
     "sass-loader": "10.4.1",
-    "sharp": "0.31.2",
+    "sharp": "0.32.4",
     "simple-git": "3.16.0",
     "vue-eslint-parser": "9.1.0",
     "vue-property-decorator": "9.1.2"
