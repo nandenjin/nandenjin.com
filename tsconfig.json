@@ -18,5 +18,6 @@
       "@/*": ["./src/*"]
     },
     "types": ["@types/resize-observer-browser", "@nuxt/types", "@nuxt/content"]
-  }
+  },
+  "exclude": ["node_modules", ".nuxt", "dist"]
 }
