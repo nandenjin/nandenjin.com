@@ -165,7 +165,7 @@ export async function getAssets(
         updateProgress()
       } catch (e) {
         errorCount++
-        errors.push({ e, entPath })
+        errors.push({ e: e as Error, entPath })
         updateProgress()
       }
     })(ent, entPath)
