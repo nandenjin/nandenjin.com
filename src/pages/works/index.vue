@@ -9,7 +9,11 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
+
+// eslint-disable-next-line  @typescript-eslint/no-unused-vars
 import WorksTagFilterSelector from '../../components/WorksTagFilterSelector.vue'
+
+// eslint-disable-next-line  @typescript-eslint/no-unused-vars
 import ContentList from '~/components/ContentList.vue'
 
 interface Page {
