@@ -45,7 +45,7 @@
     "firebase-tools": "13.0.2",
     "husky": "8.0.3",
     "lint-staged": "15.2.2",
-    "npm-run-all2": "5.0.0",
+    "npm-run-all2": "5.0.2",
     "nuxt-property-decorator": "2.9.1",
     "rimraf": "5.0.5",
     "sass": "1.69.7",
