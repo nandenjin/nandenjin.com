@@ -39,7 +39,7 @@
     "@typescript-eslint/parser": "6.14.0",
     "consola": "3.2.3",
     "es6-promise-pool": "2.5.0",
-    "eslint": "8.55.0",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
     "firebase-tools": "13.6.0",
