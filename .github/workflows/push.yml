@@ -47,7 +47,7 @@ jobs:
         working-directory: content
 
       - name: Cache build
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: build-cache
         with:
           path: node_modules/.cache/builder-module
