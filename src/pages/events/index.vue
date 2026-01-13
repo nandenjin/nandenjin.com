@@ -19,7 +19,6 @@ type Page = {
     let src = (await $content('events', { deep: true })
       .sortBy('session_start', 'desc')
       .fetch<Page>()) as Page[]
-    console.log(src)
 
     // Move TBA events (that should be at the end of array) to after upcoming/open events
     const now = new Date()

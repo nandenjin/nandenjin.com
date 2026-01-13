@@ -47,8 +47,6 @@ interface Page {
       ).map(item => item[0])
     )
 
-    console.log(pages)
-
     return {
       pages,
     }
