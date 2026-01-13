@@ -16,7 +16,7 @@ type Page = {
 
 @Component({
   async asyncData({ $content }) {
-    let src = (await $content('pages/events')
+    let src = (await $content('events', { deep: true })
       .sortBy('session_start', 'desc')
       .fetch<Page>()) as Page[]
 

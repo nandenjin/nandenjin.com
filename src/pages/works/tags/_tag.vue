@@ -19,7 +19,7 @@ interface Page {
     const pages: unknown[] = []
     const tag = route.params.tag
 
-    const src = (await $content('pages/works')
+    const src = (await $content('works', { deep: true })
       .where({ tags: { $regex: tag } })
       .sortBy('release', 'desc')
       .fetch<Page[]>()) as Page[]

@@ -15,7 +15,7 @@ import { Vue, Component } from 'vue-property-decorator'
 
 @Component({
   async asyncData({ $content }) {
-    const page = await $content('pages/profile/index').fetch()
+    const page = await $content('profile/index').fetch()
     return {
       page,
     }

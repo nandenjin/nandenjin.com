@@ -43,7 +43,7 @@ import { Vue, Component } from 'vue-property-decorator'
   async asyncData({ route, $content, error }) {
     try {
       const id = route.params.id
-      const page = await $content('pages/works', id).fetch()
+      const page = (await $content('works', id).fetch())[0]
 
       return {
         page,

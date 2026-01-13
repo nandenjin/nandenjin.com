@@ -10,7 +10,7 @@
           : null
       "
     >
-      <nuxt-link class="link" :to="content.path.replace(/^\/pages/, '')">
+      <nuxt-link class="link" :to="content.path.replace(/\/index$/, '')">
         <figure>
           <div
             class="thumbnail"

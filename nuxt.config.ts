@@ -33,13 +33,11 @@ const config: NuxtConfig = {
       const pages = (
         (await Promise.all(
           ['news', 'works', 'events'].map(fragment =>
-            $content('pages/' + fragment)
-              .only(['path'])
-              .fetch()
+            $content(fragment).only(['path']).fetch()
           )
         )) as FetchReturn[]
       ).reduce((a, p) => a.concat(p), [] as FetchReturn[])
-      return pages.map(({ path }) => path.replace(/^\/pages/, ''))
+      return pages.map(page => page.path)
     },
   },
 

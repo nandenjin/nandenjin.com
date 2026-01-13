@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import ImageBox from '~/components/ImageBox.vue'
 import YoutubeEmbed from '~/components/YoutubeEmbed.vue'
@@ -26,10 +27,14 @@ const IMAGE_SIZES_RULE = '(max-width: 700px) 100vw, 700px'
 
       // <img> -> <image-box>
       if (node.tag === 'img') {
+        /** Absolute path to image */
+        const src = node.props.src
+          ? toContentURL(resolve(content.dir, node.props.src))
+          : undefined
         return h(ImageBox, {
           props: {
             ...node.props,
-            src: node.props.src ? toContentURL(node.props.src) : undefined,
+            src,
             sizes: IMAGE_SIZES_RULE,
           },
         })

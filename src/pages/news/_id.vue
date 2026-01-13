@@ -29,7 +29,7 @@ import { formatDate } from '~/lib/helpers'
   async asyncData({ route, $content, error }) {
     try {
       const id = route.params.id
-      const page = await $content('pages/news', id).fetch()
+      const page = (await $content('news', id).fetch())[0]
 
       return {
         page,
