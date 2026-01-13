@@ -5,7 +5,6 @@ import { getAssets } from './util/assets'
 
 const builderModule: Module = async function ExampleModule() {
   const workDir = resolve(__dirname, '../content')
-  // const assetsDir = join(workDir, './assets')
 
   const assets = await getAssets(workDir, { cache: true })
   consola.success('All assets from content repo are now ready')
