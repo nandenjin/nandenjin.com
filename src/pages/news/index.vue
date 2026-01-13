@@ -80,8 +80,7 @@ export default class NewsIndexPage extends Vue {
 </script>
 
 <style lang="sass" scoped>
-
-@import '~/assets/style/media.sass'
+@use '~/assets/style/media.sass'
 
 .link-list
   padding: 0
@@ -102,7 +101,7 @@ export default class NewsIndexPage extends Vue {
       padding: 20px 30px
       color: inherit
 
-      +rmq
+      +media.rmq
         display: block
         padding: 20px 15px
 

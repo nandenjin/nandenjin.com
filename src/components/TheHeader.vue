@@ -50,7 +50,7 @@ export default class TheHeader extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/style/media.sass';
+@use '~/assets/style/media.sass';
 
 .header {
   display: grid;
@@ -60,7 +60,7 @@ export default class TheHeader extends Vue {
   width: calc(100vw - 50px * 2);
   margin: 50px auto;
 
-  @include rmq() {
+  @include media.rmq() {
     display: block;
     width: calc(100vw - 25px * 2);
   }
@@ -74,7 +74,7 @@ export default class TheHeader extends Vue {
     width: 200px;
     transform: translateY(7px);
 
-    @include rmq() {
+    @include media.rmq() {
       display: block;
     }
   }
@@ -82,7 +82,7 @@ export default class TheHeader extends Vue {
   .menu {
     display: inline-flex;
 
-    @include rmq() {
+    @include media.rmq() {
       margin-top: 30px;
     }
 
@@ -118,7 +118,7 @@ export default class TheHeader extends Vue {
     .social {
       flex: 0 0 auto;
 
-      @include rmq() {
+      @include media.rmq() {
         display: none;
       }
 

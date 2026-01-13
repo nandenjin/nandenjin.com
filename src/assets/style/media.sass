@@ -1,13 +1,15 @@
+@use "sass:map";
+
 $breakpoints: ("sm": "screen and (min-width: 400px)", "md": "screen and (min-width: 768px)", "lg": "screen and (min-width: 1000px)", "xl": "screen and (min-width: 1200px)") !default
 
 $Rbreakpoints: ("sm": "screen and (max-width: 400px)", "md": "screen and (max-width: 768px)", "lg": "screen and (max-width: 1000px)", "xl": "screen and (max-width: 1200px)") !default
 
 =mq($breakpoint: md)
-  @media #{map-get($breakpoints, $breakpoint)}
+  @media #{map.get($breakpoints, $breakpoint)}
     @content
 
 =rmq($breakpoint: md)
-  @media #{map-get($Rbreakpoints, $breakpoint)}
+  @media #{map.get($Rbreakpoints, $breakpoint)}
     @content
 
 +mq(md)

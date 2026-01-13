@@ -1,7 +1,7 @@
 // ToDo: Use async load for webfont
+@use './media.sass'
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap')
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-@import './media.sass'
   
 *
   font-family: Questrial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Helvetica Neue', Arial, '游ゴシック', 'Yu Gothic', '游ゴシック体', 'YuGothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS P Gothic', sans-serif
@@ -49,7 +49,7 @@ p
 .main-with-margin
   margin: 80px 50px 50px
 
-  @include rmq()
+  @include media.rmq()
     margin: 50px 25px 25px
 
 .doc
@@ -61,7 +61,7 @@ p
     max-width: 700px
     margin: 60px auto
 
-    @include rmq()
+    @include media.rmq()
       width: calc(100vw - 25px * 2)
 
   .header
@@ -96,7 +96,7 @@ p
       max-width: 700px
       margin: 15px auto
 
-      @include rmq()
+      @include media.rmq()
         width: calc(100vw - 25px * 2)
 
       &:has(.image-box, .youtube-embed)
@@ -106,7 +106,7 @@ p
     .image-box, .youtube-embed
       margin: 40px auto
 
-      @include rmq()
+      @include media.rmq()
         margin: 30px 0
 
     h2
@@ -134,7 +134,7 @@ p
       padding: 20px 30px
       box-sizing: border-box
 
-      @include rmq()
+      @include media.rmq()
         margin: 30px 25px
 
       *

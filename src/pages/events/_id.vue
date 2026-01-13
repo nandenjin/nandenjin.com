@@ -211,7 +211,7 @@ export default class EventPage extends Vue {
 </script>
 
 <style lang="sass" scoped>
-@import '~assets/style/media.sass'
+@use '~assets/style/media.sass'
 
 .toc
   a
@@ -253,7 +253,7 @@ export default class EventPage extends Vue {
     grid-gap: 50px
     margin: 30px 0
 
-    @include rmq()
+    @include media.rmq()
       grid-template-columns: 1fr
       grid-gap: 15px
 

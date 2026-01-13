@@ -114,14 +114,14 @@ export default class ContentList extends Vue {
 
 <style lang="sass" scoped>
 @use 'sass:math'
-@import '~/assets/style/media.sass'
+@use '~/assets/style/media.sass'
 
 .list-container
   display: grid
   grid-gap: 50px
   grid-template-columns: 100%
 
-  +mq
+  +media.mq
     grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr))
 
   &.mode-events > .item .thumbnail::after
