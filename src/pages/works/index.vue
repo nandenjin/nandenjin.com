@@ -24,7 +24,7 @@ interface Page {
   async asyncData({ $content }) {
     const pages: unknown[] = []
 
-    const src = (await $content('pages/works/index').fetch<Page>()) as Page
+    const src = (await $content('works/index').fetch<Page>()) as Page
 
     const items: string[] = []
     const proc = node => {
@@ -40,10 +40,14 @@ interface Page {
     }
     proc(src.body)
     pages.push(
-      ...(await Promise.all(
-        items.map(path => $content(path.replace(/\.md$/, '')).fetch())
-      ))
+      ...(
+        await Promise.all(
+          items.map(path => $content(path.replace(/\.md$/, '')).fetch())
+        )
+      ).map(item => item[0])
     )
+
+    console.log(pages)
 
     return {
       pages,

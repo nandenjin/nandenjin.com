@@ -2,7 +2,7 @@
   <main class="maiin doc">
     <ul class="link-list">
       <li v-for="item in pages" :key="item.name" class="item">
-        <nuxt-link :to="item.path.replace(/^\/pages/, '')" class="item-content">
+        <nuxt-link :to="item.path.replace(/\/index$/, '')" class="item-content">
           <span class="title">{{ item.title_ja }}</span>
           <span class="date">{{ formatDate(item.release, 'yyyy.MM.dd') }}</span>
         </nuxt-link>
@@ -20,7 +20,7 @@ import { formatDate } from '~/lib/helpers'
 
 @Component({
   async asyncData({ $content }) {
-    const src = (await $content('pages/news/index').fetch()) as FetchReturn
+    const src = (await $content('news/index').fetch()) as FetchReturn
     const items: string[] = []
     const proc = node => {
       if (node.type === 'text') {
@@ -35,9 +35,11 @@ import { formatDate } from '~/lib/helpers'
     }
     proc(src.body)
 
-    const pages = await Promise.all(
-      items.map(path => $content(path.replace(/\.md$/, '')).fetch())
-    )
+    const pages = (
+      await Promise.all(
+        items.map(path => $content(path.replace(/\.md$/, '')).fetch())
+      )
+    ).map(item => item[0])
 
     return { pages }
   },
