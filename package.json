@@ -37,7 +37,7 @@
     "@types/sharp": "0.32.0",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
-    "consola": "3.4.0",
+    "consola": "3.4.2",
     "es6-promise-pool": "2.5.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "10.1.8",
