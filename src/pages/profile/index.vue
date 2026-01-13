@@ -68,7 +68,7 @@ export default class ProfilePage extends Vue {
 
 <style lang="sass" scoped>
 
-@import '~/assets/style/media.sass'
+@use '~/assets/style/media.sass'
 
 .profile
   font-size: 13px

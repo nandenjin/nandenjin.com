@@ -127,7 +127,7 @@ export default class WorkPage extends Vue {
 
 <style lang="sass">
 
-@import '~/assets/style/media.sass'
+@use '~/assets/style/media.sass'
 
 .main
 
@@ -136,7 +136,7 @@ export default class WorkPage extends Vue {
     margin-bottom: 15px
     border-radius: 20px
 
-    @include mq(md)
+    @include media.mq(md)
       margin-top: 85px
       margin-bottom: 85px
 
@@ -148,7 +148,7 @@ export default class WorkPage extends Vue {
     line-height: 1.8em
     color: #888
 
-    @include rmq()
+    @include media.rmq()
       width: calc(100vw - 25px * 2)
 
     .text

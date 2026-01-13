@@ -25,7 +25,7 @@ export default class ErrorPage extends Vue {
 </script>
 
 <style lang="sass" scoped>
-@import '~/assets/style/media.sass'
+@use '~/assets/style/media.sass'
 
 main
   text-align: center
