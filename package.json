@@ -52,7 +52,7 @@
     "sass-loader": "10.5.2",
     "sharp": "0.34.5",
     "simple-git": "3.30.0",
-    "typescript": "^5.3.3",
+    "typescript": "5.9.3",
     "vue-eslint-parser": "9.4.3",
     "vue-property-decorator": "9.1.2"
   },
