@@ -3,7 +3,7 @@
   "image": "mcr.microsoft.com/devcontainers/base:2-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "22"
+      "version": "24"
     }
   },
   "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install && nvm use",
