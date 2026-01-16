@@ -2809,13 +2809,6 @@
     "@types/http-errors" "*"
     "@types/node" "*"
 
-"@types/sharp@0.32.0":
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/@types/sharp/-/sharp-0.32.0.tgz#fc3ac6df6b456319bae807c3d24efdc6631cdd6f"
-  integrity sha512-OOi3kL+FZDnPhVzsfD37J88FNeZh6gQsGcLc95NbeURRGvmSjeXiDcyWzF2o3yh/gQAUn2uhh/e+CPCa5nwAxw==
-  dependencies:
-    sharp "*"
-
 "@types/source-list-map@*":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.6.tgz#164e169dd061795b50b83c19e4d3be09f8d3a454"
@@ -12475,7 +12468,7 @@ sha.js@^2.4.0, sha.js@^2.4.12, sha.js@^2.4.8:
     safe-buffer "^5.2.1"
     to-buffer "^1.2.0"
 
-sharp@*, sharp@0.34.5:
+sharp@0.34.5:
   version "0.34.5"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.34.5.tgz#b6f148e4b8c61f1797bde11a9d1cfebbae2c57b0"
   integrity sha512-Ou9I5Ft9WNcCbXrU9cMgPBcCK8LiwLqcbywW3t4oDV37n1pzpuNLsYiAV8eODnjbtQlSDwZ2cUEeQz4E54Hltg==
