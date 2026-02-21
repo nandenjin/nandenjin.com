@@ -52,7 +52,7 @@
     "sharp": "0.34.5",
     "simple-git": "3.30.0",
     "typescript": "5.9.3",
-    "vue-eslint-parser": "10.3.0",
+    "vue-eslint-parser": "10.4.0",
     "vue-property-decorator": "9.1.2"
   },
   "private": true,
