@@ -2535,6 +2535,18 @@
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"
   integrity sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==
 
+"@simple-git/args-pathspec@^1.0.1", "@simple-git/args-pathspec@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@simple-git/args-pathspec/-/args-pathspec-1.0.3.tgz#9ef4a2ad5f49ab4056362d03f93f775b93118ca5"
+  integrity sha512-ngJMaHlsWDTfjyq9F3VIQ8b7NXbBLq5j9i5bJ6XLYtD6qlDXT7fdKY2KscWWUF8t18xx052Y/PUO1K1TRc9yKA==
+
+"@simple-git/argv-parser@^1.0.2":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@simple-git/argv-parser/-/argv-parser-1.1.0.tgz#6680aed3fa68f131ca0d7efa90e52b5b23ca3183"
+  integrity sha512-sUKOu2lb5vGIWADNNLpscyj07DAeQZU3KLbnE2Tj53tW6BbDQKMly2CCfnR4oYzqtRELCPWfwaPg+Q0T8qfKBg==
+  dependencies:
+    "@simple-git/args-pathspec" "^1.0.3"
+
 "@sindresorhus/is@^4.6.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.6.0.tgz#3c7c9c46e678feefe7a2e5bb609d3dbd665ffb3f"
@@ -12630,13 +12642,15 @@ signal-exit@^4.0.1, signal-exit@^4.1.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
   integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
 
-simple-git@3.33.0:
-  version "3.33.0"
-  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-3.33.0.tgz#b903dc70f5b93535a4f64ff39172da43058cfb88"
-  integrity sha512-D4V/tGC2sjsoNhoMybKyGoE+v8A60hRawKQ1iFRA1zwuDgGZCBJ4ByOzZ5J8joBbi4Oam0qiPH+GhzmSBwbJng==
+simple-git@3.35.1:
+  version "3.35.1"
+  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-3.35.1.tgz#741ad011f359f02b1253a63970fdf694bf8e3377"
+  integrity sha512-pAG7pC3x5ATFGLN/dmV4eVazL9Lf03MWa01vyi6fsSXMn/j8ypoWUKvVAyv8Inh5X/zbDOcFA7FnQTQ8S1wErA==
   dependencies:
     "@kwsites/file-exists" "^1.1.1"
     "@kwsites/promise-deferred" "^1.1.1"
+    "@simple-git/args-pathspec" "^1.0.1"
+    "@simple-git/argv-parser" "^1.0.2"
     debug "^4.4.0"
 
 sirv@^2.0.3:
