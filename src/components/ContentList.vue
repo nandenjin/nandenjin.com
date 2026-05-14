@@ -41,8 +41,9 @@
               {{
                 content.session_start && content.session_end
                   ? formatDate(content.session_start, 'yyyy.MM.dd') +
-                    ' - ' +
-                    formatDate(content.session_end, 'MM.dd')
+                    (content.session_start !== content.session_end
+                      ? ' - ' + formatDate(content.session_end, 'yyyy.MM.dd')
+                      : '')
                   : 'To be annouced'
               }}
             </div>

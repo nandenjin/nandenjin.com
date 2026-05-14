@@ -10,9 +10,10 @@
         {{
           page.session_start
             ? formatDate(page.session_start, 'yyyy.MM.dd') +
-              '-' +
-              (page.session_end
-                ? formatDate(page.session_end, 'yyyy.MM.dd')
+              (page.session_end !== page.session_start
+                ? '-' + page.session_end
+                  ? formatDate(page.session_end, 'yyyy.MM.dd')
+                  : '?'
                 : '')
             : 'To be annouced'
         }}
@@ -62,12 +63,14 @@
                     ? formatDate(page.session_start, 'yyyy.MM.dd')
                     : ''
                 }}
-                -
-                {{
-                  page.session_end
-                    ? formatDate(page.session_end, 'yyyy.MM.dd')
-                    : ''
-                }}
+                <span v-if="page.session_start !== page.session_end">
+                  -
+                  {{
+                    page.session_end
+                      ? formatDate(page.session_end, 'yyyy.MM.dd')
+                      : ''
+                  }}
+                </span>
               </td>
             </tr>
             <tr v-if="page.locations && page.locations.length > 0">
