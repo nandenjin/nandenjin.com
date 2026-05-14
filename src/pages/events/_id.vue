@@ -123,7 +123,7 @@ import { WorkMeta } from '~/types'
       const page = (await $content('events', id).fetch())[0] as FetchReturn
 
       const relatedWorks = await $content('works')
-        .where({ slug: { $in: page.related_works } })
+        .where({ slug: { $in: page.related_works || [] } })
         .fetch()
 
       return {
