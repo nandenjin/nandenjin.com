@@ -6644,10 +6644,10 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-firebase-tools@15.16.0:
-  version "15.16.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.16.0.tgz#d5e9fb1e8f054222439ee8e1998bbae3c36eb015"
-  integrity sha512-+x0AK8IXQFnyOsiVxcm/wHCxqi0Yj9iD659rZum91uxoayn23h6kX4CFL9dVqVkodh43luzilKh2iyfXU6QgFg==
+firebase-tools@15.17.0:
+  version "15.17.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.17.0.tgz#1da03266f1f7c4b914320d39848a62a60b13080b"
+  integrity sha512-nie0gSk6m2jlkiaPI//L/b397GKcwwMo5mvwlSuiX47w7+SZfnNiMrPf/ioAkEO++gOP3YPE+uwHigsHcLdM0w==
   dependencies:
     "@apphosting/build" "^0.1.7"
     "@apphosting/common" "^0.0.8"
