@@ -50,7 +50,7 @@
         </ul>
       </section>
 
-      <section>
+      <section class="event-info-section">
         <h2 id="info">Info</h2>
         <p>{{ page.title_ja }}</p>
         <table class="event-info">
@@ -291,4 +291,13 @@ export default class EventPage extends Vue {
   display: inline
   margin: 0
   padding: 0
+
+.event-info-section
+  width: calc(100vw - 100px)
+  max-width: 700px
+  margin-block-start: 100px
+  margin-inline: auto
+
+  @include media.rmq()
+  width: calc(100vw - 50px)
 </style>
