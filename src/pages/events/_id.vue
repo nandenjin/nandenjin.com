@@ -299,5 +299,5 @@ export default class EventPage extends Vue {
   margin-inline: auto
 
   @include media.rmq()
-  width: calc(100vw - 50px)
+    width: calc(100vw - 50px)
 </style>
