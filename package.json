@@ -51,7 +51,7 @@
     "sass-loader": "10.5.2",
     "sharp": "0.34.5",
     "simple-git": "3.36.0",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "vue-eslint-parser": "10.4.0",
     "vue-property-decorator": "9.1.2"
   },
