@@ -34,8 +34,8 @@
   "devDependencies": {
     "@nuxt/typescript-build": "3.0.2",
     "@types/resize-observer-browser": "0.1.11",
-    "@typescript-eslint/eslint-plugin": "6.21.0",
-    "@typescript-eslint/parser": "6.21.0",
+    "@typescript-eslint/eslint-plugin": "8.68.0",
+    "@typescript-eslint/parser": "8.68.0",
     "consola": "3.4.2",
     "es6-promise-pool": "2.5.0",
     "eslint": "8.57.1",
