@@ -23,7 +23,7 @@
   "author": "Kazumi Inada <hello@nandenjin.com>",
   "license": "UNLICENSED",
   "dependencies": {
-    "@nuxt/content": "1.15.1",
+    "@nuxt/content": "3.16.0",
     "@nuxt/types": "2.18.1",
     "@nuxtjs/google-analytics": "2.4.0",
     "@nuxtjs/gtm": "2.4.0",
